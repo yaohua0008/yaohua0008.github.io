@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reverie — 生活的遐想</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #faf9f7;
+      --surface: #ffffff;
+      --text: #2c2c2c;
+      --muted: #888;
+      --accent: #7c6a5a;
+      --accent-light: #f0ebe4;
+      --border: #e8e2da;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      text-align: center;
+      padding: 80px 24px 60px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    header .eyebrow {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+
+    header h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.15;
+    }
+
+    header h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    header p {
+      margin-top: 18px;
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    /* ── Nav ── */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      padding: 20px 24px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.5px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      transition: color .2s;
+    }
+    nav a:hover { color: var(--accent); }
+
+    /* ── Main ── */
+    main {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 64px 24px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 32px;
+    }
+
+    /* ── Featured post ── */
+    .featured {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .featured::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), #c4a882);
+    }
+
+    .featured .tag {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+
+    .featured h2 {
+      font-family: 'Lora', serif;
+      font-size: 1.7rem;
+      font-weight: 600;
+      line-height: 1.35;
+      margin-bottom: 14px;
+    }
+
+    .featured p {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 0.95rem;
+    }
+
+    .featured .meta {
+      margin-top: 24px;
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .featured .meta span { color: var(--border); }
+
+    /* ── Post list ── */
+    .post-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .post-item {
+      background: var(--surface);
+      padding: 28px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      transition: background .15s;
+      cursor: pointer;
+    }
+
+    .post-item:hover { background: #fdfcfa; }
+
+    .post-item h3 {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .post-item .excerpt {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .post-item .date {
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+      padding-top: 3px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 48px 24px;
+      font-size: 13px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <p class="eyebrow">Personal Blog</p>
+    <h1><em>Reverie</em></h1>
+    <p>生活的遐想 · 记录那些值得被留下的瞬间</p>
+  </header>
+
+  <nav>
+    <a href="#">首页</a>
+    <a href="#">随笔</a>
+    <a href="#">阅读</a>
+    <a href="#">关于</a>
+  </nav>
+
+  <main>
+    <p class="section-label">置顶文章</p>
+
+    <div class="featured">
+      <span class="tag">随笔</span>
+      <h2>在某个安静的下午，开始写博客这件事</h2>
+      <p>写博客这件事，一直在"以后再说"的清单里躺着。直到某天午后，阳光刚好斜进来，我打开编辑器，发现没有什么特别的理由，但就是想写了。</p>
+      <div class="meta">
+        <span>2026 年 3 月</span>
+        <span>·</span>
+        <span>3 min read</span>
+      </div>
+    </div>
+
+    <p class="section-label" style="margin-top: 48px;">近期文章</p>
+
+    <div class="post-list">
+      <div class="post-item">
+        <div>
+          <h3>读《万历十五年》：历史的褶皱里住着什么</h3>
+          <p class="excerpt">黄仁宇用一年串联起整个王朝的命运逻辑，读来像在翻一张极细密的地图。</p>
+        </div>
+        <span class="date">Mar 2026</span>
+      </div>
+      <div class="post-item">
+        <div>
+          <h3>泉州行记：一座城的慢速度</h3>
+          <p class="excerpt">古城街巷里的光线有种特别的质感，像被时间磨过的玻璃，透而不刺眼。</p>
+        </div>
+        <span class="date">Mar 2026</span>
+      </div>
+      <div class="post-item">
+        <div>
+          <h3>关于「独处」这件小事</h3>
+          <p class="excerpt">一个人待着久了，会发现内心有很多角落平时太吵，安静下来才听得见。</p>
+        </div>
+        <span class="date">Mar 2026</span>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>reverie.is-a.dev · Built with care · <a href="https://github.com/yaohua0008">@yaohua0008</a></p>
+  </footer>
+
+</body>
+</html>
