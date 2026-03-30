@@ -3,279 +3,637 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reverie — 生活的遐想</title>
+  <title>Reverie · 生活的遐想</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #faf9f7;
-      --surface: #ffffff;
-      --text: #2c2c2c;
-      --muted: #888;
-      --accent: #7c6a5a;
-      --accent-light: #f0ebe4;
-      --border: #e8e2da;
+      --bg: #f4f2ee;
+      --white: #ffffff;
+      --ink: #1e1e1e;
+      --ink-mid: #555;
+      --ink-soft: #999;
+      --border: #e4e0d8;
+
+      /* 分类色 */
+      --c-essay:  #ff6b4a;   /* 随笔：珊瑚橙 */
+      --c-book:   #4f8ef7;   /* 读书：天蓝 */
+      --c-travel: #2dc88a;   /* 旅行：绿 */
+      --c-life:   #f0a500;   /* 生活：橙黄 */
+      --c-film:   #9b5fe0;   /* 电影：紫 */
+
+      --sans: 'Noto Sans SC', system-ui, sans-serif;
+      --serif: 'Noto Serif SC', Georgia, serif;
+      --radius: 14px;
     }
 
+    html { font-size: 15px; }
+
     body {
-      font-family: 'Inter', sans-serif;
       background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.75;
     }
 
     /* ── Header ── */
     header {
-      text-align: center;
-      padding: 80px 24px 60px;
+      background: var(--white);
       border-bottom: 1px solid var(--border);
-      background: var(--surface);
+      position: sticky; top: 0; z-index: 100;
     }
 
-    header .eyebrow {
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 18px;
+    .header-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    header h1 {
-      font-family: 'Lora', serif;
-      font-size: clamp(2.4rem, 6vw, 4rem);
-      font-weight: 400;
-      color: var(--text);
-      line-height: 1.15;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
     }
 
-    header h1 em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    header p {
-      margin-top: 18px;
+    .logo-icon {
+      width: 34px; height: 34px;
+      background: linear-gradient(135deg, #ff6b4a 0%, #f0a500 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
       font-size: 1rem;
-      color: var(--muted);
-      font-weight: 300;
-      max-width: 420px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.7;
+      color: white;
+      font-weight: 600;
     }
 
-    /* ── Nav ── */
+    .logo-name {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.03em;
+      color: var(--ink);
+    }
+
+    .logo-sub {
+      font-size: 0.68rem;
+      color: var(--ink-soft);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
     nav {
       display: flex;
-      justify-content: center;
-      gap: 32px;
-      padding: 20px 24px;
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      font-size: 13px;
-      color: var(--muted);
-      letter-spacing: 0.5px;
+      align-items: center;
+      gap: 0.3rem;
     }
 
     nav a {
+      font-size: 0.82rem;
+      color: var(--ink-mid);
       text-decoration: none;
-      color: var(--muted);
-      transition: color .2s;
+      padding: 0.38rem 0.85rem;
+      border-radius: 20px;
+      font-weight: 400;
+      transition: all 0.2s;
     }
-    nav a:hover { color: var(--accent); }
 
-    /* ── Main ── */
-    main {
-      max-width: 740px;
+    nav a:hover {
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    nav .active {
+      background: var(--ink);
+      color: white;
+    }
+
+    /* ── Hero banner ── */
+    .hero {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 3.5rem 2rem 3rem;
+    }
+
+    .hero-inner {
+      max-width: 1060px;
       margin: 0 auto;
-      padding: 64px 24px;
-    }
-
-    .section-label {
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 32px;
-    }
-
-    /* ── Featured post ── */
-    .featured {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 40px;
-      margin-bottom: 48px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .featured::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent), #c4a882);
-    }
-
-    .featured .tag {
-      display: inline-block;
-      background: var(--accent-light);
-      color: var(--accent);
-      font-size: 11px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 4px;
-      margin-bottom: 16px;
-    }
-
-    .featured h2 {
-      font-family: 'Lora', serif;
-      font-size: 1.7rem;
-      font-weight: 600;
-      line-height: 1.35;
-      margin-bottom: 14px;
-    }
-
-    .featured p {
-      color: var(--muted);
-      line-height: 1.75;
-      font-size: 0.95rem;
-    }
-
-    .featured .meta {
-      margin-top: 24px;
-      font-size: 12px;
-      color: var(--muted);
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
       align-items: center;
-      gap: 12px;
     }
 
-    .featured .meta span { color: var(--border); }
+    .hero-greeting {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #fff4f1;
+      color: var(--c-essay);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+    }
 
-    /* ── Post list ── */
-    .post-list {
+    .hero-title {
+      font-family: var(--serif);
+      font-size: 2.3rem;
+      font-weight: 600;
+      line-height: 1.45;
+      color: var(--ink);
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-title .hl {
+      background: linear-gradient(90deg, #ff6b4a, #f0a500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-desc {
+      font-size: 0.92rem;
+      color: var(--ink-mid);
+      line-height: 1.9;
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .btn-fill {
+      background: var(--ink);
+      color: white;
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 0.62rem 1.5rem;
+      border-radius: 24px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-fill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 400;
+      padding: 0.62rem 1.5rem;
+      border-radius: 24px;
+      border: 1.5px solid var(--border);
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+
+    .btn-outline:hover { border-color: #bbb; }
+
+    /* hero right: stat cards */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .stat-card {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 1.4rem;
       display: flex;
       flex-direction: column;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
+      gap: 0.5rem;
     }
 
-    .post-item {
-      background: var(--surface);
-      padding: 28px 32px;
+    .stat-card:first-child {
+      grid-column: span 2;
+      background: linear-gradient(135deg, #fff4f1 0%, #fff8ec 100%);
+      border: 1.5px solid #fde8d8;
+    }
+
+    .stat-emoji { font-size: 1.4rem; }
+
+    .stat-val {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--ink-soft);
+      font-weight: 300;
+    }
+
+    /* ── Category pills ── */
+    .cats {
+      max-width: 1060px;
+      margin: 2.5rem auto;
+      padding: 0 2rem;
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 20px;
-      transition: background .15s;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .cat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1.5px solid transparent;
+    }
+
+    .cat-pill.active, .cat-pill:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    .pill-essay  { background: #fff0ed; color: var(--c-essay);  border-color: #ffd4c8; }
+    .pill-book   { background: #eef4ff; color: var(--c-book);   border-color: #c5d9ff; }
+    .pill-travel { background: #edfff6; color: var(--c-travel); border-color: #b8f0d8; }
+    .pill-life   { background: #fff9e6; color: var(--c-life);   border-color: #fce8a0; }
+    .pill-film   { background: #f5eeff; color: var(--c-film);   border-color: #ddc5f8; }
+    .pill-all    { background: var(--ink); color: white; }
+
+    /* ── Cards grid ── */
+    .grid-section {
+      max-width: 1060px;
+      margin: 0 auto 4rem;
+      padding: 0 2rem;
+    }
+
+    .grid-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 1.2rem;
+    }
+
+    /* 主推卡 */
+    .hero-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: 1.2rem;
+      border: 1px solid var(--border);
+      transition: box-shadow 0.25s, transform 0.25s;
       cursor: pointer;
     }
 
-    .post-item:hover { background: #fdfcfa; }
+    .hero-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
 
-    .post-item h3 {
-      font-family: 'Lora', serif;
-      font-size: 1.05rem;
+    .hc-img {
+      background: linear-gradient(135deg, #ffe8e0 0%, #ffd4b8 100%);
+      min-height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+
+    .hc-body {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .card-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.68rem;
       font-weight: 600;
-      line-height: 1.4;
-      margin-bottom: 6px;
+      padding: 0.22rem 0.65rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      width: fit-content;
     }
 
-    .post-item .excerpt {
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.6;
+    .tag-essay  { background: #fff0ed; color: var(--c-essay); }
+    .tag-book   { background: #eef4ff; color: var(--c-book); }
+    .tag-travel { background: #edfff6; color: var(--c-travel); }
+    .tag-life   { background: #fff9e6; color: var(--c-life); }
+    .tag-film   { background: #f5eeff; color: var(--c-film); }
+
+    .hc-title {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--ink);
+      margin-bottom: 0.8rem;
     }
 
-    .post-item .date {
-      font-size: 12px;
-      color: var(--muted);
-      white-space: nowrap;
-      flex-shrink: 0;
-      padding-top: 3px;
+    .hc-excerpt {
+      font-size: 0.85rem;
+      color: var(--ink-mid);
+      line-height: 1.9;
+      font-weight: 300;
+      margin-bottom: 1.2rem;
+    }
+
+    .hc-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hc-date {
+      font-size: 0.72rem;
+      color: var(--ink-soft);
+    }
+
+    .hc-arrow {
+      width: 32px; height: 32px;
+      background: var(--bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: var(--ink-mid);
+      transition: all 0.2s;
+    }
+
+    .hero-card:hover .hc-arrow {
+      background: var(--ink);
+      color: white;
+    }
+
+    /* 小卡片网格 */
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .mini-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: box-shadow 0.25s, transform 0.25s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .mini-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.07);
+      transform: translateY(-2px);
+    }
+
+    .mc-title {
+      font-family: var(--serif);
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1.55;
+      color: var(--ink);
+    }
+
+    .mc-excerpt {
+      font-size: 0.78rem;
+      color: var(--ink-mid);
+      line-height: 1.85;
+      font-weight: 300;
+      flex: 1;
+    }
+
+    .mc-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.68rem;
+      color: var(--ink-soft);
+    }
+
+    /* ── Quote band ── */
+    .quote-band {
+      background: linear-gradient(135deg, #fff8f0 0%, #fff0f8 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .quote-band p {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      line-height: 1.9;
+      color: var(--ink);
+    }
+
+    .quote-band cite {
+      display: block;
+      margin-top: 0.8rem;
+      font-size: 0.72rem;
+      color: var(--ink-soft);
+      font-style: normal;
     }
 
     /* ── Footer ── */
     footer {
-      text-align: center;
-      padding: 48px 24px;
-      font-size: 13px;
-      color: var(--muted);
+      background: var(--white);
       border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      text-align: center;
     }
 
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
+    footer p {
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+    }
+
+    footer p + p { margin-top: 0.3rem; }
+
+    /* ── Responsive ── */
+    @media (max-width: 700px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-stats { display: none; }
+      .hero-card { grid-template-columns: 1fr; }
+      .hc-img { min-height: 140px; }
+      .mini-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Header -->
   <header>
-    <p class="eyebrow">Personal Blog</p>
-    <h1><em>Reverie</em></h1>
-    <p>生活的遐想 · 记录那些值得被留下的瞬间</p>
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">R</div>
+        <div>
+          <div class="logo-name">Reverie</div>
+          <div class="logo-sub">生活的遐想</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#" class="active">首页</a>
+        <a href="#">随笔</a>
+        <a href="#">读书</a>
+        <a href="#">旅行</a>
+        <a href="#">关于</a>
+      </nav>
+    </div>
   </header>
 
-  <nav>
-    <a href="#">首页</a>
-    <a href="#">随笔</a>
-    <a href="#">阅读</a>
-    <a href="#">关于</a>
-  </nav>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <span class="hero-greeting">✦ 欢迎来到 Reverie</span>
+        <h1 class="hero-title">用文字留住<br><span class="hl">生活的遐想</span></h1>
+        <p class="hero-desc">记录日常里那些想说又说不清楚的事——读完的书，走过的路，傍晚路灯亮起的颜色，还有一杯冷掉的茶。</p>
+        <div class="hero-btns">
+          <a href="#" class="btn-fill">开始阅读</a>
+          <a href="#" class="btn-outline">关于我</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span class="stat-emoji">✍️</span>
+          <span class="stat-val">23</span>
+          <span class="stat-label">篇文章，持续更新中</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-emoji">📚</span>
+          <span class="stat-val">读书</span>
+          <span class="stat-label">8 篇书评</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-emoji">🗺️</span>
+          <span class="stat-val">旅行</span>
+          <span class="stat-label">6 段旅程</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <main>
-    <p class="section-label">置顶文章</p>
+  <!-- Category pills -->
+  <div class="cats">
+    <span class="cat-pill pill-all">全部</span>
+    <span class="cat-pill pill-essay">随笔</span>
+    <span class="cat-pill pill-book">📚 读书</span>
+    <span class="cat-pill pill-travel">🗺️ 旅行</span>
+    <span class="cat-pill pill-life">☀️ 生活</span>
+    <span class="cat-pill pill-film">🎬 电影</span>
+  </div>
 
-    <div class="featured">
-      <span class="tag">随笔</span>
-      <h2>在某个安静的下午，开始写博客这件事</h2>
-      <p>写博客这件事，一直在"以后再说"的清单里躺着。直到某天午后，阳光刚好斜进来，我打开编辑器，发现没有什么特别的理由，但就是想写了。</p>
-      <div class="meta">
-        <span>2026 年 3 月</span>
-        <span>·</span>
-        <span>3 min read</span>
+  <!-- Cards -->
+  <div class="grid-section">
+    <p class="grid-label">最新文章</p>
+
+    <!-- 主推卡 -->
+    <div class="hero-card">
+      <div class="hc-img">🌿</div>
+      <div class="hc-body">
+        <span class="card-tag tag-essay">随笔</span>
+        <h2 class="hc-title">慢下来，才能看见那些被忽略的事物</h2>
+        <p class="hc-excerpt">有时候觉得，生活里最值得珍惜的，不是那些宏大的时刻，而是窗台上一杯冷掉的茶，或者傍晚路灯刚亮起时街道变成的那种颜色。</p>
+        <div class="hc-footer">
+          <span class="hc-date">2026.03.30</span>
+          <span class="hc-arrow">→</span>
+        </div>
       </div>
     </div>
 
-    <p class="section-label" style="margin-top: 48px;">近期文章</p>
-
-    <div class="post-list">
-      <div class="post-item">
-        <div>
-          <h3>读《万历十五年》：历史的褶皱里住着什么</h3>
-          <p class="excerpt">黄仁宇用一年串联起整个王朝的命运逻辑，读来像在翻一张极细密的地图。</p>
+    <!-- 小卡片 -->
+    <div class="mini-grid">
+      <div class="mini-card">
+        <span class="card-tag tag-book">📚 读书</span>
+        <h3 class="mc-title">读《百年孤独》：时间是一种幻觉</h3>
+        <p class="mc-excerpt">马尔克斯写的不是一个家族，而是人类面对遗忘时的无力感。</p>
+        <div class="mc-footer">
+          <span>2026.03.28</span>
+          <span>→</span>
         </div>
-        <span class="date">Mar 2026</span>
       </div>
-      <div class="post-item">
-        <div>
-          <h3>泉州行记：一座城的慢速度</h3>
-          <p class="excerpt">古城街巷里的光线有种特别的质感，像被时间磨过的玻璃，透而不刺眼。</p>
+      <div class="mini-card">
+        <span class="card-tag tag-travel">🗺️ 旅行</span>
+        <h3 class="mc-title">在泉州，我看见了一座真实的城市</h3>
+        <p class="mc-excerpt">没有表演性，泉州的街道还留着生活本来的气息。</p>
+        <div class="mc-footer">
+          <span>2026.03.15</span>
+          <span>→</span>
         </div>
-        <span class="date">Mar 2026</span>
       </div>
-      <div class="post-item">
-        <div>
-          <h3>关于「独处」这件小事</h3>
-          <p class="excerpt">一个人待着久了，会发现内心有很多角落平时太吵，安静下来才听得见。</p>
+      <div class="mini-card">
+        <span class="card-tag tag-essay">随笔</span>
+        <h3 class="mc-title">关于孤独，我学到的一些事</h3>
+        <p class="mc-excerpt">孤独不是一种缺失，而是一种质地。一个人发呆，反而是最清醒的时刻。</p>
+        <div class="mc-footer">
+          <span>2026.03.02</span>
+          <span>→</span>
         </div>
-        <span class="date">Mar 2026</span>
+      </div>
+      <div class="mini-card">
+        <span class="card-tag tag-book">📚 读书</span>
+        <h3 class="mc-title">木心说：生命是时时刻刻不知如何是好</h3>
+        <p class="mc-excerpt">读木心总觉得他在用最轻盈的语气，说最沉重的事。</p>
+        <div class="mc-footer">
+          <span>2026.02.14</span>
+          <span>→</span>
+        </div>
+      </div>
+      <div class="mini-card">
+        <span class="card-tag tag-life">☀️ 生活</span>
+        <h3 class="mc-title">一个人住的第三年，我学会了煮饭</h3>
+        <p class="mc-excerpt">不是为了省钱，只是想让每一天多一点仪式感。</p>
+        <div class="mc-footer">
+          <span>2026.01.28</span>
+          <span>→</span>
+        </div>
+      </div>
+      <div class="mini-card">
+        <span class="card-tag tag-film">🎬 电影</span>
+        <h3 class="mc-title">《过往人生》：有些遗憾，比完美更美</h3>
+        <p class="mc-excerpt">看完之后沉默很久。不是因为悲伤，而是因为太真实。</p>
+        <div class="mc-footer">
+          <span>2026.01.10</span>
+          <span>→</span>
+        </div>
       </div>
     </div>
-  </main>
+  </div>
 
+  <!-- Quote -->
+  <div class="quote-band">
+    <p>生命是什么？<br>是时时刻刻不知如何是好。</p>
+    <cite>—— 木心</cite>
+  </div>
+
+  <!-- Footer -->
   <footer>
-    <p>reverie.is-a.dev · Built with care · <a href="https://github.com/yaohua0008">@yaohua0008</a></p>
+    <p>Reverie · 生活的遐想</p>
+    <p>reverie.is-a.dev · 以文字为界，以遐想为疆</p>
   </footer>
 
 </body>
