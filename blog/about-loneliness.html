@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>关于孤独，我学到的一些事 | Reverie</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f4f2ee;
+      --white: #ffffff;
+      --ink: #1e1e1e;
+      --ink-mid: #555;
+      --ink-soft: #999;
+      --border: #e4e0d8;
+      --c-essay: #ff6b4a;
+      --sans: 'Noto Sans SC', system-ui, sans-serif;
+      --serif: 'Noto Serif SC', Georgia, serif;
+      --radius: 14px;
+    }
+
+    html { font-size: 15px; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.75;
+    }
+
+    /* Header */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-icon {
+      width: 34px; height: 34px;
+      background: linear-gradient(135deg, #ff6b4a 0%, #f0a500 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: white;
+      font-weight: 600;
+    }
+
+    .logo-name {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.03em;
+      color: var(--ink);
+    }
+
+    .logo-sub {
+      font-size: 0.68rem;
+      color: var(--ink-soft);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    nav a {
+      font-size: 0.82rem;
+      color: var(--ink-mid);
+      text-decoration: none;
+      padding: 0.38rem 0.85rem;
+      border-radius: 20px;
+      font-weight: 400;
+      transition: all 0.2s;
+    }
+
+    nav a:hover {
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    nav .active {
+      background: var(--ink);
+      color: white;
+    }
+
+    /* Article */
+    .article-container {
+      max-width: 720px;
+      margin: 3rem auto 5rem;
+      padding: 0 2rem;
+    }
+
+    .article-header {
+      margin-bottom: 3rem;
+    }
+
+    .article-category {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: #fff0ed;
+      color: var(--c-essay);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.9rem;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+    }
+
+    .article-title {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+
+    .article-meta {
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .article-content {
+      font-size: 1rem;
+      line-height: 1.95;
+    }
+
+    .article-content p {
+      margin-bottom: 1.8rem;
+    }
+
+    .article-content .lead {
+      font-size: 1.12rem;
+      font-weight: 400;
+      color: var(--ink);
+      padding-left: 1rem;
+      border-left: 3px solid var(--c-essay);
+    }
+
+    .article-content blockquote {
+      font-style: italic;
+      padding-left: 2rem;
+      color: var(--ink-mid);
+      margin: 2.5rem 0;
+    }
+
+    .back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--white);
+      color: var(--ink);
+      font-size: 0.82rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 24px;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      margin-top: 3rem;
+      transition: all 0.2s;
+    }
+
+    .back-home:hover {
+      background: var(--ink);
+      color: white;
+      border-color: var(--ink);
+    }
+
+    .back-home::before {
+      content: "←";
+    }
+
+    footer {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">R</div>
+        <div>
+          <div class="logo-name">Reverie</div>
+          <div class="logo-sub">生活的遐想</div>
+        </div>
+      </div>
+      <nav>
+        <a href="../index.html">首页</a>
+        <a href="../essay/" class="active">随笔</a>
+        <a href="../books/">读书</a>
+        <a href="../travel/">旅行</a>
+        <a href="../about/">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <header class="article-header">
+      <div class="article-category">随笔</div>
+      <h1 class="article-title">关于孤独，我学到的一些事</h1>
+      <div class="article-meta">
+        <span>2026年3月2日</span>
+        <span>阅读时间：约 5 分钟</span>
+      </div>
+    </header>
+
+    <article class="article-content">
+      <p class="lead">孤独不是一种缺失，而是一种质地。一个人发呆，反而是最清醒的时刻。</p>
+
+      <p>小时候，我害怕一个人。放学回家，如果家里没人，我会开着电视，让声音填满整个房间。那时候觉得，安静是可怕的，好像一旦安静下来，就会有什么不好的事情发生。</p>
+
+      <p>后来一个人住，开始不得不面对这种安静。刚开始还是老办法：放音乐，听播客，看视频，用各种声音把自己包围起来。好像这样，就能证明自己不是真的一个人。</p>
+
+      <p>但慢慢发现，声音填不满心里的那个空洞。反而是在那些刻意制造出来的喧嚣里，孤独感变得更加尖锐。</p>
+
+      <blockquote>
+        我开始试着关掉所有声音，就那么坐着。什么也不做，什么也不想，只是看着窗外的天色一点点暗下来。
+      </blockquote>
+
+      <p>第一次这么做的时候，感觉很奇怪。时间好像突然变慢了，每一秒都变得清晰可感。能听到自己的呼吸声，能听到远处偶尔传来的汽车声，能听到风吹过树叶的声音。</p>
+
+      <p>原来，安静不是什么都没有，而是有很多平时被忽略的声音。</p>
+
+      <p>我开始喜欢上这种一个人的时刻。周末的下午，泡一杯茶，坐在窗边，就那么看着。看云怎么飘，看树怎么摇，看阳光怎么在墙上移动。</p>
+
+      <p>慢慢地，我发现孤独不是一种缺失——好像缺少了什么人，缺少了什么事。孤独是一种质地，一种特定的生活状态。在这种状态下，你能更清楚地感受到自己。</p>
+
+      <p>一个人吃饭的时候，能尝出饭菜真正的味道。一个人走路的时候，能注意到路边的细节：那家小店换了招牌，那棵树开花了，那只猫又趴在墙头上晒太阳。</p>
+
+      <p>孤独让你慢下来，让你不再急着去填补什么。你开始接受：有些时刻，就是应该一个人度过的。</p>
+
+      <p>我养成了每天傍晚散步的习惯。就在家附近走走，不带手机，不听音乐。就那么走，看着周围的人和事。有时候会遇到邻居，点点头打个招呼；有时候就只是自己走。</p>
+
+      <p>这种散步没有目的，不是为了锻炼，不是为了到达某个地方。它就只是走，让自己有时间想一些平时不会想的事，或者干脆什么也不想。</p>
+
+      <p>越是这样，我越觉得，孤独其实是一种能力。不是所有人都能享受一个人的时光，也不是所有人都能在安静中找到平静。</p>
+
+      <p>现在，当我感到孤独的时候，我不再急着去找人说话，或者打开手机刷社交网络。我会给自己泡杯茶，找个舒服的角落坐下，就那么待着。</p>
+
+      <p>有时候会想通一些困扰很久的问题，有时候会冒出一些新的想法，有时候就只是让大脑休息一下。</p>
+
+      <p>孤独教会我的最重要的一件事是：你可以不用依赖别人来确认自己的存在。你就是你，即使一个人，即使安静，即使什么都不做，你依然是完整的。</p>
+
+      <p>这大概就是成长吧——从害怕孤独，到接受孤独，再到享受孤独。这个过程，花了很久，但值得。</p>
+    </article>
+
+    <a href="../index.html" class="back-home">返回首页</a>
+  </main>
+
+  <footer>
+    <p>Reverie · 生活的遐想</p>
+    <p>reverie.is-a.dev · 以文字为界，以遐想为疆</p>
+  </footer>
+</body>
+</html>

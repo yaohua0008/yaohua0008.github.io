@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>慢下来，才能看见那些被忽略的事物 | Reverie</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f4f2ee;
+      --white: #ffffff;
+      --ink: #1e1e1e;
+      --ink-mid: #555;
+      --ink-soft: #999;
+      --border: #e4e0d8;
+      --c-essay: #ff6b4a;
+      --sans: 'Noto Sans SC', system-ui, sans-serif;
+      --serif: 'Noto Serif SC', Georgia, serif;
+      --radius: 14px;
+    }
+
+    html { font-size: 15px; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.75;
+    }
+
+    /* Header */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-icon {
+      width: 34px; height: 34px;
+      background: linear-gradient(135deg, #ff6b4a 0%, #f0a500 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: white;
+      font-weight: 600;
+    }
+
+    .logo-name {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.03em;
+      color: var(--ink);
+    }
+
+    .logo-sub {
+      font-size: 0.68rem;
+      color: var(--ink-soft);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    nav a {
+      font-size: 0.82rem;
+      color: var(--ink-mid);
+      text-decoration: none;
+      padding: 0.38rem 0.85rem;
+      border-radius: 20px;
+      font-weight: 400;
+      transition: all 0.2s;
+    }
+
+    nav a:hover {
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    nav .active {
+      background: var(--ink);
+      color: white;
+    }
+
+    /* Article */
+    .article-container {
+      max-width: 720px;
+      margin: 3rem auto 5rem;
+      padding: 0 2rem;
+    }
+
+    .article-header {
+      margin-bottom: 3rem;
+    }
+
+    .article-category {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: #fff0ed;
+      color: var(--c-essay);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.9rem;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+    }
+
+    .article-title {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+
+    .article-meta {
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .article-content {
+      font-size: 1rem;
+      line-height: 1.95;
+    }
+
+    .article-content p {
+      margin-bottom: 1.8rem;
+    }
+
+    .article-content .lead {
+      font-size: 1.12rem;
+      font-weight: 400;
+      color: var(--ink);
+      padding-left: 1rem;
+      border-left: 3px solid var(--c-essay);
+    }
+
+    .article-content blockquote {
+      font-style: italic;
+      padding-left: 2rem;
+      color: var(--ink-mid);
+      margin: 2.5rem 0;
+    }
+
+    .back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--white);
+      color: var(--ink);
+      font-size: 0.82rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 24px;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      margin-top: 3rem;
+      transition: all 0.2s;
+    }
+
+    .back-home:hover {
+      background: var(--ink);
+      color: white;
+      border-color: var(--ink);
+    }
+
+    .back-home::before {
+      content: "←";
+    }
+
+    footer {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">R</div>
+        <div>
+          <div class="logo-name">Reverie</div>
+          <div class="logo-sub">生活的遐想</div>
+        </div>
+      </div>
+      <nav>
+        <a href="../index.html">首页</a>
+        <a href="../essay/" class="active">随笔</a>
+        <a href="../books/">读书</a>
+        <a href="../travel/">旅行</a>
+        <a href="../about/">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <header class="article-header">
+      <div class="article-category">随笔</div>
+      <h1 class="article-title">慢下来，才能看见那些被忽略的事物</h1>
+      <div class="article-meta">
+        <span>2026年3月30日</span>
+        <span>阅读时间：约 5 分钟</span>
+      </div>
+    </header>
+
+    <article class="article-content">
+      <p class="lead">有时候觉得，生活里最值得珍惜的，不是那些宏大的时刻，而是窗台上一杯冷掉的茶，或者傍晚路灯刚亮起时街道变成的那种颜色。</p>
+
+      <p>你有没有过这样的体验：某个周日下午，百无聊赖地靠在沙发上，阳光斜斜地从窗外洒进来，在地板上拉出一道长长的光带。你盯着那道光，看里面的灰尘在缓慢地舞蹈——它们不像是在漂浮，倒像是有什么你看不见的韵律，让每粒尘埃都按着自己的节奏，在半空中画着看不见的圆。</p>
+
+      <p>这时候，时间好像不再是墙上挂钟指针的移动，而变成了一种质感。你能感觉到它，不是用头脑去“知道”几点了，而是用皮肤、用呼吸去感受：光线的颜色在变暖，从午后的淡金色慢慢转向傍晚的琥珀色。</p>
+
+      <blockquote>
+        时间是一种幻觉——不是因为它不存在，而是因为当我们真正沉浸在某件事里时，时间就变成了空间，变成了我们可以触摸的厚度。
+      </blockquote>
+
+      <p>现代生活教会我们把一切加速。我们被训练成效率的奴隶，就连“休息”也要规划：十五分钟冥想，二十分钟运动，十分钟整理。好像慢下来就是浪费，就是失败。</p>
+
+      <p>但我越来越觉得，真正的看见，恰恰是在那些看起来“无所事事”的时刻发生的。</p>
+
+      <p>比如等待水烧开的几分钟里，你可以选择刷手机，也可以选择看着锅底的气泡从无到有，从稀疏到密集，听水声从细微的咝咝声到越来越响的翻滚。这个过程本身，就是一种禅。</p>
+
+      <p>或者走在回家的路上，不戴耳机，不听播客，就那么走。你会发现，平时被忽略的声音突然变得清晰：远处小孩的笑声，风吹过树叶的沙沙声，自己的脚步声在水泥地上有规律地响着。</p>
+
+      <p>这些时刻，它们不产生任何可以量化的“成果”，但它们构成了生活本身——那种可以被称为“活着”的感觉。</p>
+
+      <p>慢下来，不是为了对抗快，而是为了找回属于感知的时间。在这个时间里，你能看到茶杯里茶叶慢慢舒展的姿态，能看到雨滴在玻璃上划过的痕迹，能看到一只鸟在树枝上停留片刻，然后飞走。</p>
+
+      <p>这些被忽略的事物，它们一直在那里，只是我们的眼睛习惯了高速行驶，看不清路边的风景。</p>
+    </article>
+
+    <a href="../index.html" class="back-home">返回首页</a>
+  </main>
+
+  <footer>
+    <p>Reverie · 生活的遐想</p>
+    <p>reverie.is-a.dev · 以文字为界，以遐想为疆</p>
+  </footer>
+</body>
+</html>

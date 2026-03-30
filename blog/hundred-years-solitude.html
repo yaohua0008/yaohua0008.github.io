@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>读《百年孤独》：时间是一种幻觉 | Reverie</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f4f2ee;
+      --white: #ffffff;
+      --ink: #1e1e1e;
+      --ink-mid: #555;
+      --ink-soft: #999;
+      --border: #e4e0d8;
+      --c-book: #4f8ef7;
+      --sans: 'Noto Sans SC', system-ui, sans-serif;
+      --serif: 'Noto Serif SC', Georgia, serif;
+      --radius: 14px;
+    }
+
+    html { font-size: 15px; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.75;
+    }
+
+    /* Header */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-icon {
+      width: 34px; height: 34px;
+      background: linear-gradient(135deg, #ff6b4a 0%, #f0a500 100%);
+      border-radius: 8px;
+      display: flex;
+        align-items: center;
+        justify-content: center;
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: white;
+      font-weight: 600;
+    }
+
+    .logo-name {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.03em;
+      color: var(--ink);
+    }
+
+    .logo-sub {
+      font-size: 0.68rem;
+      color: var(--ink-soft);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    nav a {
+      font-size: 0.82rem;
+      color: var(--ink-mid);
+      text-decoration: none;
+      padding: 0.38rem 0.85rem;
+      border-radius: 20px;
+      font-weight: 400;
+      transition: all 0.2s;
+    }
+
+    nav a:hover {
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    nav .active {
+      background: var(--ink);
+      color: white;
+    }
+
+    /* Article */
+    .article-container {
+      max-width: 720px;
+      margin: 3rem auto 5rem;
+      padding: 0 2rem;
+    }
+
+    .article-header {
+      margin-bottom: 3rem;
+    }
+
+    .article-category {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: #eef4ff;
+      color: var(--c-book);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.9rem;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+    }
+
+    .article-title {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+
+    .article-meta {
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .article-content {
+      font-size: 1rem;
+      line-height: 1.95;
+    }
+
+    .article-content p {
+      margin-bottom: 1.8rem;
+    }
+
+    .article-content .lead {
+      font-size: 1.12rem;
+      font-weight: 400;
+      color: var(--ink);
+      padding-left: 1rem;
+      border-left: 3px solid var(--c-book);
+    }
+
+    .article-content blockquote {
+      font-style: italic;
+      padding-left: 2rem;
+      color: var(--ink-mid);
+      margin: 2.5rem 0;
+    }
+
+    .back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--white);
+      color: var(--ink);
+      font-size: 0.82rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 24px;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      margin-top: 3rem;
+      transition: all 0.2s;
+    }
+
+    .back-home:hover {
+      background: var(--ink);
+      color: white;
+      border-color: var(--ink);
+    }
+
+    .back-home::before {
+      content: "←";
+    }
+
+    footer {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">R</div>
+        <div>
+          <div class="logo-name">Reverie</div>
+          <div class="logo-sub">生活的遐想</div>
+        </div>
+      </div>
+      <nav>
+        <a href="../index.html">首页</a>
+        <a href="../essay/">随笔</a>
+        <a href="../books/" class="active">读书</a>
+        <a href="../travel/">旅行</a>
+        <a href="../about/">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <header class="article-header">
+      <div class="article-category">📚 读书</div>
+      <h1 class="article-title">读《百年孤独》：时间是一种幻觉</h1>
+      <div class="article-meta">
+        <span>2026年3月28日</span>
+        <span>阅读时间：约 7 分钟</span>
+      </div>
+    </header>
+
+    <article class="article-content">
+      <p class="lead">马尔克斯写的不是一个家族，而是人类面对遗忘时的无力感。</p>
+
+      <p>第一次读《百年孤独》是在高中的暑假，闷热的午后，蝉鸣声像永不停止的背景音。我躺在凉席上，翻开那本黄皮封面的书，然后就被“许多年之后，面对行刑队，奥雷连诺·布恩迪亚上校将会回想起，父亲带他去见识冰块的那个遥远的下午”这句话击中了。</p>
+
+      <p>那时候我不懂什么魔幻现实主义，不懂什么叙事学上的“预言式回溯”，我只是觉得，这个开头有种说不出的魔力——它把过去、现在和未来同时放在一个句子里，时间在这里好像失去了线性，变成了一团可以随意揉捏的物质。</p>
+
+      <blockquote>
+        时间不是一条线，而是一个圆。马孔多的居民一次次重复着相同的名字，相同的命运，好像他们永远无法跳出那个既定的循环。
+      </blockquote>
+
+      <p>后来我才明白，布恩迪亚家族七代人的故事，本质上是一个关于时间的故事。不是物理意义上的时间，而是人类记忆里的时间——那种不断重复、不断遗忘、又不断重新开始的时间。</p>
+
+      <p>何塞·阿尔卡蒂奥·布恩迪亚试图用望远镜和星盘测量世界，最后却因为无法忍受时间的循环而发疯。阿玛兰妲织了又拆的寿衣，雷贝卡把自己关在屋里几十年，奥雷连诺上校打了三十二场败仗——他们都在用各自的方式，对抗时间的虚无。</p>
+
+      <p>最让人感到无力的是羊皮卷上的预言。所有的故事，早在开始之前就已经写好了结局。布恩迪亚家族的人像是被命运的剧本困住的演员，无论他们怎么挣扎，最终都会回到原点。</p>
+
+      <p>但这种宿命感，正是这本书的魅力所在。当我们意识到一切都是注定的时候，反而获得了一种奇特的自由——既然终将遗忘，既然终将消失，那么当下的每个瞬间，都成了唯一真实的存在。</p>
+
+      <p>马尔克斯在《百年孤独》的最后写道：“注定经受百年孤独的家族，最终不会再出现在这个世上了。”这句话读起来有种史诗般的悲凉，但也是一种解脱。遗忘既是诅咒，也是救赎。</p>
+
+      <p>合上书的时候我在想，也许我们每个人心里都有一个马孔多。在那里，时间不是线性前进的，而是一层层堆叠起来，像雨季的积水，映照着无数个既相似又不同的自己。</p>
+    </article>
+
+    <a href="../index.html" class="back-home">返回首页</a>
+  </main>
+
+  <footer>
+    <p>Reverie · 生活的遐想</p>
+    <p>reverie.is-a.dev · 以文字为界，以遐想为疆</p>
+  </footer>
+</body>
+</html>

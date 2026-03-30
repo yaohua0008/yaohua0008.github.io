@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>《过往人生》：有些遗憾，比完美更美 | Reverie</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f4f2ee;
+      --white: #ffffff;
+      --ink: #1e1e1e;
+      --ink-mid: #555;
+      --ink-soft: #999;
+      --border: #e4e0d8;
+      --c-film: #9b5fe0;
+      --sans: 'Noto Sans SC', system-ui, sans-serif;
+      --serif: 'Noto Serif SC', Georgia, serif;
+      --radius: 14px;
+    }
+
+    html { font-size: 15px; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.75;
+    }
+
+    /* Header */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-icon {
+      width: 34px; height: 34px;
+      background: linear-gradient(135deg, #ff6b4a 0%, #f0a500 100%);
+      border-radius: 8px;
+      display: flex;
+        align-items: center;
+        justify-content: center;
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: white;
+      font-weight: 600;
+    }
+
+    .logo-name {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.03em;
+      color: var(--ink);
+    }
+
+    .logo-sub {
+      font-size: 0.68rem;
+      color: var(--ink-soft);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    nav a {
+      font-size: 0.82rem;
+      color: var(--ink-mid);
+      text-decoration: none;
+      padding: 0.38rem 0.85rem;
+      border-radius: 20px;
+      font-weight: 400;
+      transition: all 0.2s;
+    }
+
+    nav a:hover {
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    nav .active {
+      background: var(--ink);
+      color: white;
+    }
+
+    /* Article */
+    .article-container {
+      max-width: 720px;
+      margin: 3rem auto 5rem;
+      padding: 0 2rem;
+    }
+
+    .article-header {
+      margin-bottom: 3rem;
+    }
+
+    .article-category {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: #f5eeff;
+      color: var(--c-film);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.9rem;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+    }
+
+    .article-title {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+
+    .article-meta {
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .article-content {
+      font-size: 1rem;
+      line-height: 1.95;
+    }
+
+    .article-content p {
+      margin-bottom: 1.8rem;
+    }
+
+    .article-content .lead {
+      font-size: 1.12rem;
+      font-weight: 400;
+      color: var(--ink);
+      padding-left: 1rem;
+      border-left: 3px solid var(--c-film);
+    }
+
+    .article-content blockquote {
+      font-style: italic;
+      padding-left: 2rem;
+      color: var(--ink-mid);
+      margin: 2.5rem 0;
+    }
+
+    .back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--white);
+      color: var(--ink);
+      font-size: 0.82rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 24px;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      margin-top: 3rem;
+      transition: all 0.2s;
+    }
+
+    .back-home:hover {
+      background: var(--ink);
+      color: white;
+      border-color: var(--ink);
+    }
+
+    .back-home::before {
+      content: "←";
+    }
+
+    footer {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">R</div>
+        <div>
+          <div class="logo-name">Reverie</div>
+          <div class="logo-sub">生活的遐想</div>
+        </div>
+      </div>
+      <nav>
+        <a href="../index.html">首页</a>
+        <a href="../essay/">随笔</a>
+        <a href="../books/">读书</a>
+        <a href="../travel/">旅行</a>
+        <a href="../life/">生活</a>
+        <a href="../film/" class="active">电影</a>
+        <a href="../about/">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <header class="article-header">
+      <div class="article-category">🎬 电影</div>
+      <h1 class="article-title">《过往人生》：有些遗憾，比完美更美</h1>
+      <div class="article-meta">
+        <span>2026年1月10日</span>
+        <span>阅读时间：约 6 分钟</span>
+      </div>
+    </header>
+
+    <article class="article-content">
+      <p class="lead">看完之后沉默很久。不是因为悲伤，而是因为太真实。</p>
+
+      <p>《过往人生》讲的是一个极其简单的故事：青梅竹马的两个人，因为一方移民而分开。二十年后，他们在纽约重逢，各自都有了新的生活。他们见了一面，聊了一天，然后各自回到自己的人生里。</p>
+
+      <p>没有戏剧性的冲突，没有轰轰烈烈的爱情，甚至没有一个明确的结局。但就是这样一部电影，让我在影院里看得无法呼吸。</p>
+
+      <p>电影最打动我的，是它对“遗憾”的处理。大多数人可能会期待一个“如果当初”的假设——如果娜英没有去美国，如果海升去了美国，如果他们一直保持联系，那现在会怎样？</p>
+
+      <p>但电影里没有这样的假设。娜英和海升的重逢，不是要弥补什么，也不是要证明什么。他们只是坐在河边，看着对岸的曼哈顿，聊着这二十年来各自的人生：娜英成了剧作家，结了婚，住在纽约；海升成了建筑师，离了婚，依然在韩国。</p>
+
+      <blockquote>
+        他们没有问“你为什么没有等我”，也没有说“我一直在想你”。他们只是安静地坐在一起，像两个认识很久但又不太熟的朋友。
+      </blockquote>
+
+      <p>这可能是成年人的感情里最真实的样子——没有那么多非此即彼的选择，没有那么多黑白分明的对错。只是两条曾经相交的线，在某个时间点分开，然后各自走向了不同的方向。</p>
+
+      <p>电影里有个细节我印象特别深：在河边，海升问娜英：“如果你没去美国，我们会在一起吗？”娜英想了想，说：“不会。”然后她解释说，不是因为不爱，而是因为每个人的人生都是由无数个选择组成的，而每个选择都会塑造出不同的自己。</p>
+
+      <p>那个去了美国的娜英，和那个留在韩国的娜英，已经成了两个不同的人。她们可能会有相似的性格，相似的喜好，但她们的人生经历、价值观、对世界的看法，都完全不同。</p>
+
+      <p>所以，即使当初他们在一起了，也不一定会幸福。因为让他们分开的，不是距离，而是时间，是成长，是人生轨迹的必然分歧。</p>
+
+      <p>电影的最后，娜英送海升去机场。他们没有拥抱，没有哭，只是简单地说了声“再见”。海升进了安检，娜英转身离开。镜头跟着她穿过拥挤的人群，走出机场，坐进出租车。她没有哭，只是看着窗外，眼神里有种说不出的平静。</p>
+
+      <p>那个画面让我想起米兰·昆德拉在《不能承受的生命之轻》里写的一句话：“人生的重量，不是来自于我们得到了什么，而是来自于我们放弃了什么。”</p>
+
+      <p>娜英和海升放弃了“如果”的可能性，选择了接受现实。而这种接受，不是妥协，不是无奈，而是一种成熟的智慧——他们明白，有些遗憾，比完美更美。</p>
+
+      <p>因为完美意味着终结，而遗憾意味着可能性。那扇没有打开的门，永远保持着它的神秘；那个没有在一起的人，永远停留在最美好的想象里。</p>
+
+      <p>走出电影院的时候，我突然觉得，也许人生里最珍贵的，不是那些我们得到的东西，而是那些我们选择不得到的东西。那些我们放手、放弃、错过的东西，它们构成了我们生命的另一面，一种看不见的重量。</p>
+    </article>
+
+    <a href="../index.html" class="back-home">返回首页</a>
+  </main>
+
+  <footer>
+    <p>Reverie · 生活的遐想</p>
+    <p>reverie.is-a.dev · 以文字为界，以遐想为疆</p>
+  </footer>
+</body>
+</html>

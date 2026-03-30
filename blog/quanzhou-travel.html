@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>在泉州，我看见了一座真实的城市 | Reverie</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f4f2ee;
+      --white: #ffffff;
+      --ink: #1e1e1e;
+      --ink-mid: #555;
+      --ink-soft: #999;
+      --border: #e4e0d8;
+      --c-travel: #2dc88a;
+      --sans: 'Noto Sans SC', system-ui, sans-serif;
+      --serif: 'Noto Serif SC', Georgia, serif;
+      --radius: 14px;
+    }
+
+    html { font-size: 15px; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.75;
+    }
+
+    /* Header */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-icon {
+      width: 34px; height: 34px;
+      background: linear-gradient(135deg, #ff6b4a 0%, #f0a500 100%);
+      border-radius: 8px;
+      display: flex;
+        align-items: center;
+        justify-content: center;
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: white;
+      font-weight: 600;
+    }
+
+    .logo-name {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.03em;
+      color: var(--ink);
+    }
+
+    .logo-sub {
+      font-size: 0.68rem;
+      color: var(--ink-soft);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    nav a {
+      font-size: 0.82rem;
+      color: var(--ink-mid);
+      text-decoration: none;
+      padding: 0.38rem 0.85rem;
+      border-radius: 20px;
+      font-weight: 400;
+      transition: all 0.2s;
+    }
+
+    nav a:hover {
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    nav .active {
+      background: var(--ink);
+      color: white;
+    }
+
+    /* Article */
+    .article-container {
+      max-width: 720px;
+      margin: 3rem auto 5rem;
+      padding: 0 2rem;
+    }
+
+    .article-header {
+      margin-bottom: 3rem;
+    }
+
+    .article-category {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: #edfff6;
+      color: var(--c-travel);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.9rem;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+    }
+
+    .article-title {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+
+    .article-meta {
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .article-content {
+      font-size: 1rem;
+      line-height: 1.95;
+    }
+
+    .article-content p {
+      margin-bottom: 1.8rem;
+    }
+
+    .article-content .lead {
+      font-size: 1.12rem;
+      font-weight: 400;
+      color: var(--ink);
+      padding-left: 1rem;
+      border-left: 3px solid var(--c-travel);
+    }
+
+    .article-content blockquote {
+      font-style: italic;
+      padding-left: 2rem;
+      color: var(--ink-mid);
+      margin: 2.5rem 0;
+    }
+
+    .back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--white);
+      color: var(--ink);
+      font-size: 0.82rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 24px;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      margin-top: 3rem;
+      transition: all 0.2s;
+    }
+
+    .back-home:hover {
+      background: var(--ink);
+      color: white;
+      border-color: var(--ink);
+    }
+
+    .back-home::before {
+      content: "←";
+    }
+
+    footer {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">R</div>
+        <div>
+          <div class="logo-name">Reverie</div>
+          <div class="logo-sub">生活的遐想</div>
+        </div>
+      </div>
+      <nav>
+        <a href="../index.html">首页</a>
+        <a href="../essay/">随笔</a>
+        <a href="../books/">读书</a>
+        <a href="../travel/" class="active">旅行</a>
+        <a href="../about/">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <header class="article-header">
+      <div class="article-category">🗺️ 旅行</div>
+      <h1 class="article-title">在泉州，我看见了一座真实的城市</h1>
+      <div class="article-meta">
+        <span>2026年3月15日</span>
+        <span>阅读时间：约 6 分钟</span>
+      </div>
+    </header>
+
+    <article class="article-content">
+      <p class="lead">没有表演性，泉州的街道还留着生活本来的气息。</p>
+
+      <p>去泉州之前，我对这座城市的想象，无非是“海上丝绸之路起点”“多种宗教交融”“古早味小吃”这些标签。但真正走在西街的青石板上时，我发现这些标签都太轻了，它们无法描述我感受到的那种“真实”。</p>
+
+      <p>那是三月的午后，阳光透过古榕树的叶子，在石板路上洒下细碎的光斑。我顺着人流往前走，左手边是开元寺的红墙，右手边是卖土笋冻和石花膏的小摊。空气里有焚香的味道，也有炸醋肉和姜母鸭的香气。</p>
+
+      <p>最让我惊讶的是，这里没有那种为了游客特意制造出来的“古韵”。街边的老店就是老店，老板坐在门口打盹，顾客来了也不招呼，等你自己开口。理发店还挂着“老式刮脸”的招牌，修鞋匠坐在竹凳上，一边和邻居聊天一边补鞋。</p>
+
+      <blockquote>
+        在泉州，时间好像没有往前走，也没有往回走，它只是停在那里，像一池深不见底的水。
+      </blockquote>
+
+      <p>我走进承天寺，在廊下找了个角落坐下。寺里游客不多，几个本地老太太坐在石凳上念经，声音低低的，像风吹过竹叶。不远处，一个年轻的僧人正拿着扫帚扫地，他的动作很慢，每一帚都扫得很仔细，好像不是在扫地，而是在画一幅看不见的画。</p>
+
+      <p>那一刻我突然明白了，泉州的特别之处在于，它没有被“旅游化”吞噬。这里的人们还过着他们的生活，寺庙还是寺庙，老厝还是老厝，小吃店还是当地人每天会去的地方。</p>
+
+      <p>傍晚的时候，我走到清净寺。这座始建于北宋的清真寺，现在只剩下石墙和拱门，但依然能看出当年的宏伟。夕阳把石壁染成金色，几个小孩在门口的空地上踢毽子，笑声清脆。</p>
+
+      <p>我在寺外的台阶上坐了很久，看着天色一点点暗下来。街灯一盏盏亮起，不是那种刺眼的白光，而是暖黄色的，像旧时用的煤油灯。远处传来南音的声音，咿咿呀呀的，听不懂在唱什么，但那种曲调有种说不出的哀伤和温柔。</p>
+
+      <p>离开泉州的那天早上，我又去西街吃了碗面线糊。老板还是那个打盹的老板，见我来了，慢悠悠地起身，问我要不要加醋肉。我说要，他点点头，舀了一勺，不多不少，刚刚好。</p>
+
+      <p>在高铁上我翻开手机，看到相册里的泉州——那些石雕、那些红砖厝、那些小巷里的光影。突然觉得，这座城市最珍贵的，可能就是它没有被过度解释，没有被包装成某种“文化符号”。它还保留着生活本来的样子，那种粗糙的、随意的、但又无比真实的样子。</p>
+    </article>
+
+    <a href="../index.html" class="back-home">返回首页</a>
+  </main>
+
+  <footer>
+    <p>Reverie · 生活的遐想</p>
+    <p>reverie.is-a.dev · 以文字为界，以遐想为疆</p>
+  </footer>
+</body>
+</html>

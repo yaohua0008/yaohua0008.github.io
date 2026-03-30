@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>随笔 | Reverie</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f4f2ee;
+      --white: #ffffff;
+      --ink: #1e1e1e;
+      --ink-mid: #555;
+      --ink-soft: #999;
+      --border: #e4e0d8;
+      --c-essay: #ff6b4a;
+      --sans: 'Noto Sans SC', system-ui, sans-serif;
+      --serif: 'Noto Serif SC', Georgia, serif;
+      --radius: 14px;
+    }
+
+    html { font-size: 15px; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.75;
+    }
+
+    /* Header */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-icon {
+      width: 34px; height: 34px;
+      background: linear-gradient(135deg, #ff6b4a 0%, #f0a500 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: white;
+      font-weight: 600;
+    }
+
+    .logo-name {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.03em;
+      color: var(--ink);
+    }
+
+    .logo-sub {
+      font-size: 0.68rem;
+      color: var(--ink-soft);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    nav a {
+      font-size: 0.82rem;
+      color: var(--ink-mid);
+      text-decoration: none;
+      padding: 0.38rem 0.85rem;
+      border-radius: 20px;
+      font-weight: 400;
+      transition: all 0.2s;
+    }
+
+    nav a:hover {
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    nav .active {
+      background: var(--ink);
+      color: white;
+    }
+
+    /* Category page */
+    .category-container {
+      max-width: 1060px;
+      margin: 3rem auto 5rem;
+      padding: 0 2rem;
+    }
+
+    .category-header {
+      margin-bottom: 3rem;
+    }
+
+    .category-icon {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: #fff0ed;
+      color: var(--c-essay);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.9rem;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+    }
+
+    .category-title {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+
+    .category-desc {
+      font-size: 0.95rem;
+      color: var(--ink-mid);
+      line-height: 1.85;
+      max-width: 700px;
+    }
+
+    /* Articles list */
+    .articles-list {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .article-item {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      display: block;
+      transition: all 0.25s;
+    }
+
+    .article-item:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+
+    .article-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: #fff0ed;
+      color: var(--c-essay);
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 0.22rem 0.65rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .article-title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--ink);
+      margin-bottom: 0.8rem;
+    }
+
+    .article-excerpt {
+      font-size: 0.85rem;
+      color: var(--ink-mid);
+      line-height: 1.9;
+      font-weight: 300;
+      margin-bottom: 1.2rem;
+    }
+
+    .article-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      color: var(--ink-soft);
+    }
+
+    .back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--white);
+      color: var(--ink);
+      font-size: 0.82rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 24px;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      margin-top: 3rem;
+      transition: all 0.2s;
+    }
+
+    .back-home:hover {
+      background: var(--ink);
+      color: white;
+      border-color: var(--ink);
+    }
+
+    .back-home::before {
+      content: "←";
+    }
+
+    footer {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">R</div>
+        <div>
+          <div class="logo-name">Reverie</div>
+          <div class="logo-sub">生活的遐想</div>
+        </div>
+      </div>
+      <nav>
+        <a href="../index.html">首页</a>
+        <a href="./" class="active">随笔</a>
+        <a href="../books/">读书</a>
+        <a href="../travel/">旅行</a>
+        <a href="../life/">生活</a>
+        <a href="../film/">电影</a>
+        <a href="../about/">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="category-container">
+    <header class="category-header">
+      <div class="category-icon">随笔</div>
+      <h1 class="category-title">随笔札记</h1>
+      <p class="category-desc">记录日常里那些想说又说不清楚的事——读完的书，走过的路，傍晚路灯亮起的颜色，还有一杯冷掉的茶。</p>
+    </header>
+
+    <div class="articles-list">
+      <a href="../blog/slow-down.html" class="article-item">
+        <span class="article-tag">随笔</span>
+        <h2 class="article-title">慢下来，才能看见那些被忽略的事物</h2>
+        <p class="article-excerpt">有时候觉得，生活里最值得珍惜的，不是那些宏大的时刻，而是窗台上一杯冷掉的茶，或者傍晚路灯刚亮起时街道变成的那种颜色。</p>
+        <div class="article-footer">
+          <span>2026年3月30日</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <a href="../blog/about-loneliness.html" class="article-item">
+        <span class="article-tag">随笔</span>
+        <h2 class="article-title">关于孤独，我学到的一些事</h2>
+        <p class="article-excerpt">孤独不是一种缺失，而是一种质地。一个人发呆，反而是最清醒的时刻。</p>
+        <div class="article-footer">
+          <span>2026年3月2日</span>
+          <span>→</span>
+        </div>
+      </a>
+    </div>
+
+    <a href="../index.html" class="back-home">返回首页</a>
+  </main>
+
+  <footer>
+    <p>Reverie · 生活的遐想</p>
+    <p>reverie.is-a.dev · 以文字为界，以遐想为疆</p>
+  </footer>
+</body>
+</html>

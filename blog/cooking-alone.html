@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>一个人住的第三年，我学会了煮饭 | Reverie</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f4f2ee;
+      --white: #ffffff;
+      --ink: #1e1e1e;
+      --ink-mid: #555;
+      --ink-soft: #999;
+      --border: #e4e0d8;
+      --c-life: #f0a500;
+      --sans: 'Noto Sans SC', system-ui, sans-serif;
+      --serif: 'Noto Serif SC', Georgia, serif;
+      --radius: 14px;
+    }
+
+    html { font-size: 15px; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.75;
+    }
+
+    /* Header */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-icon {
+      width: 34px; height: 34px;
+      background: linear-gradient(135deg, #ff6b4a 0%, #f0a500 100%);
+      border-radius: 8px;
+      display: flex;
+        align-items: center;
+        justify-content: center;
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: white;
+      font-weight: 600;
+    }
+
+    .logo-name {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.03em;
+      color: var(--ink);
+    }
+
+    .logo-sub {
+      font-size: 0.68rem;
+      color: var(--ink-soft);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    nav a {
+      font-size: 0.82rem;
+      color: var(--ink-mid);
+      text-decoration: none;
+      padding: 0.38rem 0.85rem;
+      border-radius: 20px;
+      font-weight: 400;
+      transition: all 0.2s;
+    }
+
+    nav a:hover {
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    nav .active {
+      background: var(--ink);
+      color: white;
+    }
+
+    /* Article */
+    .article-container {
+      max-width: 720px;
+      margin: 3rem auto 5rem;
+      padding: 0 2rem;
+    }
+
+    .article-header {
+      margin-bottom: 3rem;
+    }
+
+    .article-category {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: #fff9e6;
+      color: var(--c-life);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.9rem;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+    }
+
+    .article-title {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+
+    .article-meta {
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .article-content {
+      font-size: 1rem;
+      line-height: 1.95;
+    }
+
+    .article-content p {
+      margin-bottom: 1.8rem;
+    }
+
+    .article-content .lead {
+      font-size: 1.12rem;
+      font-weight: 400;
+      color: var(--ink);
+      padding-left: 1rem;
+      border-left: 3px solid var(--c-life);
+    }
+
+    .article-content blockquote {
+      font-style: italic;
+      padding-left: 2rem;
+      color: var(--ink-mid);
+      margin: 2.5rem 0;
+    }
+
+    .back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--white);
+      color: var(--ink);
+      font-size: 0.82rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 24px;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      margin-top: 3rem;
+      transition: all 0.2s;
+    }
+
+    .back-home:hover {
+      background: var(--ink);
+      color: white;
+      border-color: var(--ink);
+    }
+
+    .back-home::before {
+      content: "←";
+    }
+
+    footer {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">R</div>
+        <div>
+          <div class="logo-name">Reverie</div>
+          <div class="logo-sub">生活的遐想</div>
+        </div>
+      </div>
+      <nav>
+        <a href="../index.html">首页</a>
+        <a href="../essay/">随笔</a>
+        <a href="../books/">读书</a>
+        <a href="../travel/">旅行</a>
+        <a href="../life/" class="active">生活</a>
+        <a href="../about/">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <header class="article-header">
+      <div class="article-category">☀️ 生活</div>
+      <h1 class="article-title">一个人住的第三年，我学会了煮饭</h1>
+      <div class="article-meta">
+        <span>2026年1月28日</span>
+        <span>阅读时间：约 5 分钟</span>
+      </div>
+    </header>
+
+    <article class="article-content">
+      <p class="lead">不是为了省钱，只是想让每一天多一点仪式感。</p>
+
+      <p>开始一个人住的时候，我对厨房的态度是“能省则省”。早餐用即食麦片对付，午饭在外面吃，晚饭有时候煮个泡面，有时候甚至直接省略。我觉得，一个人吃饭，随便一点也没关系。</p>
+
+      <p>但这种随便，慢慢地让生活变得越来越扁平。每天下班回家，面对空荡荡的房间，不知道该做什么。时间好像变成了没有形状的东西，从指缝间无声无息地流走，不留痕迹。</p>
+
+      <p>改变发生在一个下雨的周末。窗外下着绵绵的雨，我躺在沙发上刷手机，突然觉得饿了。冰箱里什么吃的都没有，外卖也点腻了。我坐起来，看了看厨房——那扇我几乎不打开的门。</p>
+
+      <p>我站起来，第一次认真地看厨房里的东西：朋友送的电饭煲一直放在角落，从来没拆封；超市打折买的那袋米，包装都积了灰；酱油、醋、盐这些最基本的调料，买来就没怎么用过。</p>
+
+      <blockquote>
+        我决定，给自己煮一顿饭。不是随便的泡面，而是有米饭、有菜、有汤的那种。
+      </blockquote>
+
+      <p>洗米的时候，我第一次注意到米粒在手里的触感——凉凉的、滑滑的，像小小的珍珠。倒进电饭煲，加刚好没过米的水，盖上盖子，按下“煮饭”按钮。那个“滴”的提示音，在这个安静的房间里，有种说不出的温暖。</p>
+
+      <p>等饭的时候，我切了一颗番茄，打了两个鸡蛋。没有学过做菜，只是凭记忆里看妈妈做的样子，一点一点地模仿：热油，下番茄炒出汁，再倒进蛋液，慢慢搅动。</p>
+
+      <p>饭煮好的那一刻，电饭煲发出“嘀嘀”的提示音。我打开盖子，一股白色蒸汽扑面而来，带着米粒的香气。那种香气很朴实，没有花哨的味道，就是食物本身的样子。</p>
+
+      <p>我把饭盛到碗里，再盛上番茄炒蛋，端到餐桌上。就一个人，坐在桌前，慢慢地吃。窗外的雨还在下，房间里只有碗筷偶尔碰撞的声音。</p>
+
+      <p>那顿饭没什么特别，但那天之后，我开始认真对待一个人吃饭这件事。</p>
+
+      <p>我学着煮不同样式的粥：白粥、皮蛋瘦肉粥、小米南瓜粥。有时候周末起得早，就慢慢熬一锅粥，看着米粒在水里一点点开花，变成柔软的糊状。</p>
+
+      <p>我开始记下一些简单的菜谱：土豆切块和排骨一起炖，青菜烫一下淋点蚝油，蒸个鸡蛋羹撒几滴香油。都是最简单的东西，但慢慢地，厨房不再是一个摆设。</p>
+
+      <p>煮饭的时候，时间好像变得具体了。淘米、切菜、热油、翻炒、装盘——每个步骤都有一个明确的时间节点。以前那种“不知道时间去哪了”的感觉，不知不觉就消失了。</p>
+
+      <p>我不再觉得一个人吃饭是件需要对付的事情。相反，它成了这一天里，为数不多的、完全属于我自己的时刻。没有工作要处理，没有消息要回复，就只是安静地、认真地吃一顿饭。</p>
+
+      <p>有时候我会想，生活里的仪式感，大概不需要什么宏大的形式。可能就是每天晚上，为自己煮一锅饭，炒一个菜，然后坐在桌前，好好吃完。就是这样简单的事情，却让每一天变得有了一点重量。</p>
+    </article>
+
+    <a href="../index.html" class="back-home">返回首页</a>
+  </main>
+
+  <footer>
+    <p>Reverie · 生活的遐想</p>
+    <p>reverie.is-a.dev · 以文字为界，以遐想为疆</p>
+  </footer>
+</body>
+</html>

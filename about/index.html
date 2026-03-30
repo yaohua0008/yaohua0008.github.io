@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>关于我 | Reverie</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f4f2ee;
+      --white: #ffffff;
+      --ink: #1e1e1e;
+      --ink-mid: #555;
+      --ink-soft: #999;
+      --border: #e4e0d8;
+      --sans: 'Noto Sans SC', system-ui, sans-serif;
+      --serif: 'Noto Serif SC', Georgia, serif;
+      --radius: 14px;
+    }
+
+    html { font-size: 15px; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.75;
+    }
+
+    /* Header */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-icon {
+      width: 34px; height: 34px;
+      background: linear-gradient(135deg, #ff6b4a 0%, #f0a500 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: white;
+      font-weight: 600;
+    }
+
+    .logo-name {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.03em;
+      color: var(--ink);
+    }
+
+    .logo-sub {
+      font-size: 0.68rem;
+      color: var(--ink-soft);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    nav a {
+      font-size: 0.82rem;
+      color: var(--ink-mid);
+      text-decoration: none;
+      padding: 0.38rem 0.85rem;
+      border-radius: 20px;
+      font-weight: 400;
+      transition: all 0.2s;
+    }
+
+    nav a:hover {
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    nav .active {
+      background: var(--ink);
+      color: white;
+    }
+
+    /* About page */
+    .about-container {
+      max-width: 720px;
+      margin: 3rem auto 5rem;
+      padding: 0 2rem;
+    }
+
+    .about-header {
+      margin-bottom: 3rem;
+    }
+
+    .about-title {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+
+    .about-subtitle {
+      font-size: 0.95rem;
+      color: var(--ink-mid);
+      line-height: 1.85;
+    }
+
+    .about-content {
+      font-size: 1rem;
+      line-height: 1.95;
+    }
+
+    .about-content p {
+      margin-bottom: 1.8rem;
+    }
+
+    .about-content .lead {
+      font-size: 1.12rem;
+      font-weight: 400;
+      color: var(--ink);
+      padding-left: 1rem;
+      border-left: 3px solid #ccc;
+    }
+
+    .back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--white);
+      color: var(--ink);
+      font-size: 0.82rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 24px;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      margin-top: 3rem;
+      transition: all 0.2s;
+    }
+
+    .back-home:hover {
+      background: var(--ink);
+      color: white;
+      border-color: var(--ink);
+    }
+
+    .back-home::before {
+      content: "←";
+    }
+
+    footer {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">R</div>
+        <div>
+          <div class="logo-name">Reverie</div>
+          <div class="logo-sub">生活的遐想</div>
+        </div>
+      </div>
+      <nav>
+        <a href="../index.html">首页</a>
+        <a href="../essay/">随笔</a>
+        <a href="../books/">读书</a>
+        <a href="../travel/">旅行</a>
+        <a href="./" class="active">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="about-container">
+    <header class="about-header">
+      <h1 class="about-title">关于我</h1>
+      <p class="about-subtitle">一个喜欢用文字记录生活的人，相信每个平凡的瞬间都有值得被看见的美。</p>
+    </header>
+
+    <article class="about-content">
+      <p class="lead">你好，我是这个博客的作者。如果你愿意，可以叫我 Reverie（生活的遐想）。</p>
+
+      <p>我是一个普通的上班族，白天在写字楼里对着电脑工作，晚上回到自己的小窝，写写字，看看书，偶尔出去走走。</p>
+
+      <p>开始写这个博客，是因为有一天我突然意识到，生活里有很多值得记住的瞬间，但如果不记录下来，它们就会像水一样从指缝间流走。</p>
+
+      <p>那些读完一本书后的感受，那些走在陌生城市里的观察，那些一个人发呆时想到的事，那些在厨房里煮饭时冒出的念头——它们好像没什么特别，但合在一起，就是我生活的全部。</p>
+
+      <p>这个博客的名字叫“Reverie”，中文是“生活的遐想”。意思是，生活本身就是一种遐想——我们每个人都在用自己的方式，想象、感受、理解这个世界。</p>
+
+      <p>我写的不是什么高深的道理，也不是什么特别的经历。就是一些普通人的日常，一些每个人都会有的感受，一些在忙碌的生活里被忽略的小事。</p>
+
+      <p>我相信，即使是最平凡的生活，也有它独特的美。一杯冷掉的茶，一盏刚亮起的路灯，一本翻旧了的书，一次没有目的的散步——这些看似微不足道的东西，构成了我们存在的全部意义。</p>
+
+      <p>在这个博客里，我主要写几个方面的内容：</p>
+
+      <ul>
+        <li><strong>随笔</strong>：日常里的感受和思考</li>
+        <li><strong>读书</strong>：读过的好书和阅读时的想法</li>
+        <li><strong>旅行</strong>：在路上的所见所闻</li>
+        <li><strong>生活</strong>：一个人住、做饭、整理房间这些小事</li>
+        <li><strong>电影</strong>：看过的电影和观影感受</li>
+      </ul>
+
+      <p>我没有固定的更新频率，想写的时候就写，没有灵感的时候就停一停。写作对我来说不是任务，而是一种和自己对话的方式。</p>
+
+      <p>如果你在这里看到了让你有共鸣的文字，或者让你想起了自己的某个时刻，那我会觉得很开心。这说明我们虽然素不相识，但在某些感受上，是相通的。</p>
+
+      <p>最后，借用木心的一句话作为结束：“生命是什么？是时时刻刻不知如何是好。”</p>
+
+      <p>也许我们都在寻找答案的路上。这个博客，就是我在寻找过程中的一些记录。</p>
+
+      <p>感谢你的阅读，愿我们都能在生活的遐想里，找到一点属于自己的宁静。</p>
+    </article>
+
+    <a href="../index.html" class="back-home">返回首页</a>
+  </main>
+
+  <footer>
+    <p>Reverie · 生活的遐想</p>
+    <p>reverie.is-a.dev · 以文字为界，以遐想为疆</p>
+  </footer>
+</body>
+</html>

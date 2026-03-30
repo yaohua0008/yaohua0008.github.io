@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>木心说：生命是时时刻刻不知如何是好 | Reverie</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f4f2ee;
+      --white: #ffffff;
+      --ink: #1e1e1e;
+      --ink-mid: #555;
+      --ink-soft: #999;
+      --border: #e4e0d8;
+      --c-book: #4f8ef7;
+      --sans: 'Noto Sans SC', system-ui, sans-serif;
+      --serif: 'Noto Serif SC', Georgia, serif;
+      --radius: 14px;
+    }
+
+    html { font-size: 15px; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.75;
+    }
+
+    /* Header */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-icon {
+      width: 34px; height: 34px;
+      background: linear-gradient(135deg, #ff6b4a 0%, #f0a500 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: white;
+      font-weight: 600;
+    }
+
+    .logo-name {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.03em;
+      color: var(--ink);
+    }
+
+    .logo-sub {
+      font-size: 0.68rem;
+      color: var(--ink-soft);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    nav a {
+      font-size: 0.82rem;
+      color: var(--ink-mid);
+      text-decoration: none;
+      padding: 0.38rem 0.85rem;
+      border-radius: 20px;
+      font-weight: 400;
+      transition: all 0.2s;
+    }
+
+    nav a:hover {
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    nav .active {
+      background: var(--ink);
+      color: white;
+    }
+
+    /* Article */
+    .article-container {
+      max-width: 720px;
+      margin: 3rem auto 5rem;
+      padding: 0 2rem;
+    }
+
+    .article-header {
+      margin-bottom: 3rem;
+    }
+
+    .article-category {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: #eef4ff;
+      color: var(--c-book);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.9rem;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+    }
+
+    .article-title {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+
+    .article-meta {
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .article-content {
+      font-size: 1rem;
+      line-height: 1.95;
+    }
+
+    .article-content p {
+      margin-bottom: 1.8rem;
+    }
+
+    .article-content .lead {
+      font-size: 1.12rem;
+      font-weight: 400;
+      color: var(--ink);
+      padding-left: 1rem;
+      border-left: 3px solid var(--c-book);
+    }
+
+    .article-content blockquote {
+      font-style: italic;
+      padding-left: 2rem;
+      color: var(--ink-mid);
+      margin: 2.5rem 0;
+    }
+
+    .back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--white);
+      color: var(--ink);
+      font-size: 0.82rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 24px;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      margin-top: 3rem;
+      transition: all 0.2s;
+    }
+
+    .back-home:hover {
+      background: var(--ink);
+      color: white;
+      border-color: var(--ink);
+    }
+
+    .back-home::before {
+      content: "←";
+    }
+
+    footer {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">R</div>
+        <div>
+          <div class="logo-name">Reverie</div>
+          <div class="logo-sub">生活的遐想</div>
+        </div>
+      </div>
+      <nav>
+        <a href="../index.html">首页</a>
+        <a href="../essay/">随笔</a>
+        <a href="../books/" class="active">读书</a>
+        <a href="../travel/">旅行</a>
+        <a href="../about/">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <header class="article-header">
+      <div class="article-category">📚 读书</div>
+      <h1 class="article-title">木心说：生命是时时刻刻不知如何是好</h1>
+      <div class="article-meta">
+        <span>2026年2月14日</span>
+        <span>阅读时间：约 5 分钟</span>
+      </div>
+    </header>
+
+    <article class="article-content">
+      <p class="lead">读木心总觉得他在用最轻盈的语气，说最沉重的事。</p>
+
+      <p>第一次读到木心，是在大学图书馆。那天下午，阳光从窗户斜斜地照进来，我随手从书架上抽出一本《文学回忆录》，翻开第一页，就看到这句话：“生命是什么？是时时刻刻不知如何是好。”</p>
+
+      <p>我站在那里，很久没有动。好像被什么东西击中了，但又说不清是什么。那是一种很奇怪的感受：明明是一句很简单的话，却好像包含了所有的困惑、迷茫、不知所措。</p>
+
+      <p>后来我开始找木心的书来读。《哥伦比亚的倒影》《素履之往》《鱼丽之宴》。每一本都薄薄的，文字也不多，但每一句都像针一样，扎进心里。</p>
+
+      <blockquote>
+        “岁月不饶人，我亦未曾饶过岁月。”
+      </blockquote>
+
+      <p>木心说这句话的时候，已经快八十岁了。他经历过战争，经历过文革，在监狱里待过，在美国流浪过。但你看他的文字，没有一点怨恨，没有一点悲愤。他只是平静地叙述，像一个旁观者，看着自己的一生。</p>
+
+      <p>这种平静，不是冷漠，而是一种看透之后的淡然。他知道苦难是什么，但他选择用另一种方式面对：用美来对抗丑，用艺术来对抗暴力，用优雅来对抗粗俗。</p>
+
+      <p>读木心的散文，常常会有一种错觉：好像他不是在写文章，而是在画画。每一个句子都是一笔，淡淡的，轻轻的，但组合在一起，就是一幅完整的画。</p>
+
+      <p>他写上海：“上海的弄堂，是时间的褶皱。”就这一句，所有的记忆都回来了——那些狭窄的巷子，那些晾在竹竿上的衣服，那些从窗户里飘出来的饭菜香。</p>
+
+      <p>他写纽约：“纽约是座大剧场，人人都是演员，演给自己看。”这句话让我想起在纽约的那些日子，走在第五大道上，看着身边匆匆而过的人群，每个人都在演着自己的角色。</p>
+
+      <p>木心最打动我的，是他对待生活的态度。他说：“生活的最佳状态是冷冷清清地风风火火。”这句话很难翻译，但意思大概就是：外表可以平静，内心却要热烈。</p>
+
+      <p>这大概就是为什么，读木心会觉得温暖。他不是在说教，不是在讲道理，他只是把生活本身的样子展示给你看。有困惑，有迷茫，有不知所措，但也有美，有诗意，有那些小小的、值得珍惜的瞬间。</p>
+
+      <p>“不知如何是好”不是一种失败，而是一种坦诚。承认自己不知道该怎么活，承认生活本来就是一团乱麻，承认我们都在摸索中前进。</p>
+
+      <p>这种坦诚，反而让人感到安心。因为你知道，你不是一个人。所有人都在经历同样的困惑，所有人都在寻找自己的答案。</p>
+
+      <p>木心晚年回到乌镇，住在老宅里。每天画画，写作，接待来访的朋友。他说：“从前的日色变得慢，车，马，邮件都慢，一生只够爱一个人。”</p>
+
+      <p>这句话后来被谱成歌，很多人都会唱。但我觉得，真正理解这句话的人不多。它不是简单的怀旧，而是一种选择：选择慢下来，选择专注，选择用一生的时间去爱一个人，做一件事。</p>
+
+      <p>在这个什么都快的时代，木心的话像一剂解药。它提醒我们：生活不是只有一种速度，不是只有一种活法。你可以选择慢下来，可以选择不知道如何是好，可以选择在迷茫中寻找自己的方向。</p>
+
+      <p>合上木心的书，我常常会坐在窗前，看着外面的世界。阳光在移动，云在飘，树在摇。一切都在变化，一切又好像没有变。</p>
+
+      <p>“生命是时时刻刻不知如何是好。”这句话，我到现在还在想。也许要花一辈子，才能明白它真正的意思。</p>
+    </article>
+
+    <a href="../index.html" class="back-home">返回首页</a>
+  </main>
+
+  <footer>
+    <p>Reverie · 生活的遐想</p>
+    <p>reverie.is-a.dev · 以文字为界，以遐想为疆</p>
+  </footer>
+</body>
+</html>
