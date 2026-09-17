@@ -1,0 +1,82 @@
+/* Butterfly Liquid Glass - Article Tags and Share Controls */
+
+/* Quiet child controls: border highlight only, no nested optical surface. */
+.post-meta__tags,
+.post-meta-tags a,
+.post-tags a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 30px;
+  margin: 5px 8px 5px 0;
+  padding: 0 12px !important;
+  border: 1px solid var(--lg-border-light) !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.16) !important;
+  color: rgba(35, 36, 42, 0.78) !important;
+  font-size: 0.85em;
+  line-height: normal !important;
+  text-decoration: none;
+  box-shadow: none !important;
+  transition: background var(--lg-duration-fast) var(--lg-ease-standard), border-color var(--lg-duration-fast) var(--lg-ease-standard), color var(--lg-duration-fast) var(--lg-ease-standard);
+}
+
+.post-meta__tags:hover,
+.post-meta-tags a:hover,
+.post-tags a:hover {
+  background: rgba(255, 255, 255, 0.28) !important;
+  border-color: var(--lg-border-light-strong) !important;
+  color: rgba(25, 26, 30, 0.95) !important;
+  transform: none;
+}
+
+/* Share.js creates the WeChat/QQ/etc. controls at runtime. */
+#post .social-share .social-share-icon,
+#post .tag_share .social-share-icon {
+  margin: 0 4px;
+  border: 1px solid var(--lg-border-light) !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: rgba(35, 36, 42, 0.78) !important;
+  box-shadow: none !important;
+  transition: background var(--lg-duration-fast) var(--lg-ease-standard), border-color var(--lg-duration-fast) var(--lg-ease-standard), color var(--lg-duration-fast) var(--lg-ease-standard);
+}
+
+#post .social-share .social-share-icon:hover,
+#post .tag_share .social-share-icon:hover {
+  background: rgba(255, 255, 255, 0.24) !important;
+  border-color: var(--lg-border-light-strong) !important;
+  color: rgba(25, 26, 30, 0.95) !important;
+  box-shadow: none !important;
+  transform: none;
+}
+
+[data-theme="dark"] .post-meta__tags,
+[data-theme="dark"] .post-meta-tags a,
+[data-theme="dark"] .post-tags a {
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  background: rgba(255, 255, 255, 0.045) !important;
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+[data-theme="dark"] .post-meta__tags:hover,
+[data-theme="dark"] .post-meta-tags a:hover,
+[data-theme="dark"] .post-tags a:hover {
+  background: rgba(255, 255, 255, 0.09) !important;
+  border-color: rgba(255, 255, 255, 0.30) !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+[data-theme="dark"] #post .social-share .social-share-icon,
+[data-theme="dark"] #post .tag_share .social-share-icon {
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  background: rgba(255, 255, 255, 0.035) !important;
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+[data-theme="dark"] #post .social-share .social-share-icon:hover,
+[data-theme="dark"] #post .tag_share .social-share-icon:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.30) !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+}
